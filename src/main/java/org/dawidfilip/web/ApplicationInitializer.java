@@ -4,9 +4,13 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 	 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] { ApplicationConfiguration.class };
+    	Class[] webServices = new Class[] {
+    			ApplicationWebConfiguration.class
+    	};
+        return webServices;
     }
   
     @Override
